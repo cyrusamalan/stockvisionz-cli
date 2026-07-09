@@ -1,0 +1,2 @@
+"""StockVisionz CLI (`stockvisionz`)."""
+

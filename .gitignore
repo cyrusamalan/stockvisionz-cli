@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+wheels/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local credentials / secrets (the CLI stores its token under the OS config dir,
+# but never commit any stray copies)
+credentials.json
+.env
+.env.*

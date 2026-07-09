@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stockvisionz-cli"
+version = "0.2.0"
+description = "StockVisionz CLI — run Lab backtests on your machine, synced to your account."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Cyrus Amalan" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+]
+# Bundled so `stockvisionz run` executes the backtest locally out of the box.
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.24",
+  "scikit-learn>=1.3",
+  "lightgbm>=4.0",
+]
+
+[project.urls]
+Homepage = "https://stockvisionz.com"
+
+[project.optional-dependencies]
+# `local` is kept as a no-op alias so `pipx install "stockvisionz-cli[local]"`
+# (used in older docs) still resolves — the ML deps are already required above.
+local = []
+dev = ["ruff>=0.6", "pytest>=8"]
+
+[project.scripts]
+stockvisionz = "cli.main:main"
+
+[tool.setuptools.packages.find]
+include = ["cli*", "ml*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
