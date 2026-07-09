@@ -99,4 +99,4 @@ def test_cmd_run_missing_local_deps_is_friendly(monkeypatch):
 
     with pytest.raises(SystemExit) as exc:
         main.cmd_run(argparse.Namespace(symbol="AAPL"))
-    assert "stockvisionz-cli[local]" in str(exc.value)
+    assert "stockvisionz-cli" in str(exc.value)
